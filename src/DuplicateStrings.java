@@ -1,7 +1,7 @@
 public class DuplicateStrings {
     public static void main(String[] args) {
         String[][] matrixStr = {{"a","b","c"},{"d","b","t"},{"d","r","l"}};
-
+        boolean noDuplicates = true;
         for (int i = 0; i < matrixStr.length; i++) {
             String[] temp = new String[matrixStr[i].length];
             for (int j = 0; j < matrixStr[i].length; j++) {
@@ -11,6 +11,7 @@ public class DuplicateStrings {
                 for (int j =i + 1; j < matrixStr.length; j++) {
                     for (int k = 0; k < matrixStr[j].length; k++) {
                         if (temp[m].equals(matrixStr[j][k])){
+                            noDuplicates = false;
                             System.out.println(temp[m] + " is duplicate with index: " + i + " and " + m);
                         }
                     }
@@ -18,5 +19,7 @@ public class DuplicateStrings {
                 }
             }
         }
+        if (noDuplicates)
+            System.out.println("There are no duplicates in the array");
     }
 }
