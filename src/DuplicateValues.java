@@ -1,6 +1,6 @@
 public class DuplicateValues {
     public static void main(String[] args) {
-        int[][] matrix = {{1, 63, 24}, {45, 1, 25,6}, {24, 69, 82}};
+        int[][] matrix = {{1, 63, 24, 1, 1}, {45, 1, 25,6}, {24, 69, 82}};
         boolean noDuplicates = true;
 
 
@@ -10,11 +10,12 @@ public class DuplicateValues {
                 temp[j] = matrix[i][j];
             }
             for (int m = 0; m < temp.length; m++){
-                for (int j =i + 1; j < matrix.length; j++) {
+                for (int j =0; j < matrix.length; j++) {
                     for (int k = 0; k < matrix[j].length; k++) {
-                        if (temp[m] == matrix[j][k]){
+                        if (temp[m] == matrix[j][k] && k > m){
                             noDuplicates = false;
-                            System.out.println(temp[m] + " is duplicate with index: " + i + " and " + m);
+                            System.out.println(temp[m] + " is duplicate at index: [" + i + " , " + k + "]");
+                            break;
                         }
                     }
 
